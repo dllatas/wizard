@@ -6,6 +6,12 @@ Hal Abelson's, Jerry Sussman's and Julie Sussman's Structure and Interpretation 
 ### Why?
 I have become really excited about this book, and it is gonna be funny to solve it all.
 
+### How to run?
+
+```scheme
+(load "test.scm")
+```
+
 ### Installation 
 https://mitpress.mit.edu/sicp/scheme/index.html
 http://www.gnu.org/software/mit-scheme/
