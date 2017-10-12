@@ -1,3 +1,5 @@
+* [Home](../README.md)
+
 # Glossary
 
 ### computational process
@@ -8,3 +10,4 @@
 ### debug
 ### recursion equations
 ### interpreter
+procedures
