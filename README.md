@@ -3,6 +3,11 @@
 ### Book
 Hal Abelson's, Jerry Sussman's and Julie Sussman's Structure and Interpretation of Computer Programs
 
+### Summary
+[Chapter 01](book/chapter-01/README.md)
+[Glossary](book/glossary/README.md)
+
+
 ### Why?
 I have become really excited about this book, and it is gonna be funny to solve it all.
 
