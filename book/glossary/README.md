@@ -1,4 +1,4 @@
-* [Home](../../README.md)
+* [Home](../..)
 
 # Glossary
 
@@ -11,3 +11,11 @@
 ### recursion equations
 ### interpreter
 procedures
+expression
+evaluating
+combinations
+operator
+arguments
+prefix notation
+pretty-printing
+read-eval-print loop
