@@ -97,3 +97,58 @@ So, an environment gives context to certain expressions. For instance, the value
 The evaluation rule of the interpreter does not apply to special forms such as define. Each special form has its own evaluation rule. The set of expressions and its evaluation rule constitutes the programming language's syntax.
 
 ### 1.1.4 Compound Procedures
+
+Procedure definitions is a powerful abstraction that allows us to give a name to a compound operation, and therefore it can be used as a unit.
+
+A compound procedure has the following form:
+
+``` scheme
+(define (<name> <formal parameters>) <body>)
+```
+
+Evaluating the definition creates this compound procedure and associates it with the name *name*.
+
+There are two different operations being combined here: we are creating the procedure, and we are giving it the name *name*. It is possible, indeed important, to be able to separate these two notions -- to create procedures without naming them, and to give names to procedures that have already been created.
+
+Compound procedures are used in exactly the same way as primitive procedures.
+
+### 1.1.5 The Substitution Model for Procedure Application
+
+The interpreter follows the same process with primitive and compound procedures.
+
+1. To apply a compound procedure to arguments, evaluate the body of the procedure with each formal parameter replaced by the corresponding argument. 
+
+``` scheme
+(f 5)
+(sum-of-squares (+ 5 1) (* 5 2))
+(+ (square 6) (square 10))
+(+ (* 6 6) (* 10 10))
+(+ 36 100)
+136
+```
+
+The substitution model is just one way the interpreter works. A way to get started thinking formally about the evaluation process. It helps us to think about procedure application, not to provide a description of how the interpreter really works.
+
+#### Applicative order versus normal order
+
+This alternative *fully expand and then reduce* evaluation method is known as normal-order evaluation, in contrast to the *evaluate the arguments and then apply* method that the interpreter actually uses, which is called applicative-order evaluation. The latter being more efficient.
+
+**normal-order evaluation**
+``` scheme
+(f 5)
+(sum-of-squares (+ 5 1) (* 5 2))
+(+    (square (+ 5 1))      (square (* 5 2))  )
+(+    (* (+ 5 1) (+ 5 1))   (* (* 5 2) (* 5 2)))
+(+         (* 6 6)             (* 10 10))
+(+           36                   100)
+                    136
+```
+**applicative-order evaluation**
+``` scheme
+(f 5)
+(sum-of-squares (+ 5 1) (* 5 2))
+(+ (square 6) (square 10))
+(+ (* 6 6) (* 10 10))
+(+ 36 100)
+136
+```
