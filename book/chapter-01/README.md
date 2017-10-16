@@ -59,3 +59,41 @@ There is no limit more than the human capability to make sense of this combinati
 The interpreter will follow the (Read - Eval - Print) Loop. So it reads the expression from the terminal, evaluates the expression, and prints its value.
 
 ### 1.1.2  Naming and the Environment
+
+A name identifies a variables. The value of the variable is a computational object.
+
+``` scheme
+(define size 5)
+```
+
+Now we cna use the variable *size* around, instead of using directly the number 5. The power of this abstraction is to name very complex computational objects. With this abastraction, there is no need to repeat the logic of a complex object.
+
+The interpreter has a "memory" to associate names with objects. This memory is called environment. In this case, it is the global one.
+
+### 1.1.3 Evaluating Combinations
+
+Even the interpreter follows a procedure to provide a result. It follows two rules:
+
+1. Evaluate the subexpressions of the combination.
+
+2. Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
+
+This rule to evaluate is recursive, one of its step is to call itself again. Recursion is a very powerful technique for dealing with hierarchical, treelike objects. In fact, the ``percolate values upward'' form of the evaluation rule is an example of a general kind of process known as tree accumulation.
+
+From before, it can be infered that the evaluation happens on the primitive forms:
+
+1. The values of numerals are the numbers that they name.
+
+2. The values of built-in operators are the machine instruction sequences that carry out the corresponding operations, and
+
+3. The values of other names are the objects associated with those names in the environment.
+
+So, an environment gives context to certain expressions. For instance, the value of *x* is undefined without a context. 
+
+``` scheme
+(+ x 1)
+```
+
+The evaluation rule of the interpreter does not apply to special forms such as define. Each special form has its own evaluation rule. The set of expressions and its evaluation rule constitutes the programming language's syntax.
+
+### 1.1.4 Compound Procedures
