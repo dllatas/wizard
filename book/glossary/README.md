@@ -19,3 +19,8 @@ arguments
 prefix notation
 pretty-printing
 read-eval-print loop
+environment
+global environment
+recursive
+tree accumulation
+special forms
