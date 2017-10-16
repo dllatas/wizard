@@ -45,7 +45,7 @@ A compound expression involves simpler expressions as the previous one
 (+ 1 99)
 ```
 
-An expression as the previous one is called ** combination **. It is described when a set of expressions are delimited within parenthesis. The element in the left is called an operator, in this case +. The remaining elements are called operands (1 and 99). The value of the operands are called arguments. A combination value is the operator applied to all the arguments.
+An expression as the previous one is called **combination**. It is described when a set of expressions are delimited within parenthesis. The element in the left is called an operator, in this case +. The remaining elements are called operands (1 and 99). The value of the operands are called arguments. A combination value is the operator applied to all the arguments.
 
 While the notation introduced is not the conventional mathematical one, prefix notation main benefit is that there is no ambiguity on it. And it extends itself without issues:
 
