@@ -1,5 +1,6 @@
 # Wizard
 * [Web](https://dllatas.github.io/wizard/)
+* [Book](https://dllatas.gitbooks.io/wizard-book-notes/)
 
 ### Book
 Hal Abelson's, Jerry Sussman's and Julie Sussman's Structure and Interpretation of Computer Programs
