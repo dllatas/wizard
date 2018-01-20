@@ -1,5 +1,6 @@
 # Wizard
 * [Web](https://dllatas.github.io/wizard/)
+* [Book](https://dllatas.gitbooks.io/wizard-book-notes/)
 
 ### Book
 Hal Abelson's, Jerry Sussman's and Julie Sussman's Structure and Interpretation of Computer Programs
@@ -28,3 +29,6 @@ I have become really excited about this book, and it is gonna be funny to solve 
 ### Misc 
 * [Syllabus](https://mitpress.mit.edu/sicp/syllabus.html)
 * [Programming samples](https://mitpress.mit.edu/sicp/psets/index.html)
+
+### About GitBook
+* [Toolchain](https://toolchain.gitbook.com)
