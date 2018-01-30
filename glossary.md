@@ -28,12 +28,16 @@ Abstract beings manipulated by a process.
 ### tree accumulation
 ### special forms
 ### procedure definitions
-compound procedure
-substitution model
-normal-order evaluation
-applicative-order evaluation
-clauses
-predicate
-procedural abstraction
-block structure
-lexical scoping
+### compound procedure
+### substitution model
+### normal-order evaluation
+### applicative-order evaluation
+### clauses
+### predicate
+### procedural abstraction
+### block structure
+### lexical scoping
+### case analysis
+### predicate
+### consequent expression
+### else
