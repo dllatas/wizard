@@ -132,3 +132,57 @@ This alternative *fully expand and then reduce* evaluation method is known as no
 (+ 36 100)
 136
 ```
+
+### 1.1.6 Conditional Expressions and Predicates
+
+So far, there is no way to make tests and act based on their results, which limits our expressive power. The name for this construction is called case analysis and Lisp provides support for it via a special form called *cond*.
+
+**cond**
+``` scheme
+(cond 	(<p1> <e1>)
+	(<p2> <e2>)
+	...
+	(<pn> <en>)
+)
+```
+
+On the previous example, the pair of expressions in the parenthesis are called *clauses*. *p* stands for predicate. The main property of a predicate is that its value is interpreted or retruns true or false . *e* stands for consequent expression. Cond works as a sequence evaluating predicates until one is true. When that happens, it returns the value of the consequent expression. If all of them are false, the value returned is undefined.
+
+This behaviour (returning undefined) somehow influenced the creation of the special symbol *else*. The symbol else takes place in the last clause of a cond. So, it will handle the case when the rest of the predicates were false.
+
+Another reduction around cond, it's the special form *if*. It will focus on evaluating only two cases. This is the general form:
+
+**if**
+```scheme
+(if <predicate> <consequent> <alternative>)
+```
+
+An example
+```scheme
+(define (abs x)
+	(if (< x 0)
+	    (-x)
+	    x
+	)
+)
+```
+The interpreter will evaluate the predicate. If it is true, it will return the consequent.If it is false, it will return the alternative.
+
+Predicates can turn into compound predicates by the use of logical composition operations. The ones more in use are:
+
+1. And 
+```scheme
+( and <e1> <e2> ... <en>)
+```
+
+2. Or
+```scheme
+( or <e1> <e2> ... <en>)
+```
+
+3. Not
+```scheme
+( not <e>)
+```
+
+And and or are special forms since no all their subexpressions are neccesarilly evaluated. That's why they don't qualify as a procedure. However, not is a normal procedure.
