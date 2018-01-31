@@ -186,3 +186,11 @@ Predicates can turn into compound predicates by the use of logical composition o
 ```
 
 And and or are special forms since no all their subexpressions are neccesarilly evaluated. That's why they don't qualify as a procedure. However, not is a normal procedure.
+
+### 1.1.7 Example: Square Roots by Newton's Method
+
+This section seems relevant on the sense that it provides a comparison between mathematics and computer sciences. When the definition of the function to calculate square-roots is calculated, we realize that there is no info from there to actually perform the calculation.
+
+The main difference between a function and a procedure is that the latter needs to be effective. This reflection is on the center of the distinction between declarative knowledge (describing properties) and imperative knowledge (describe how to do things). It can be said that Mathematics is declarative and computer sciences, imperative.
+
+The idea of "good enough" is also presented. This represents a parameter that will provide a mesaure to determine when a result is fine, since the perfect answer might be too expensive to compute. Moreover, another powerful idea is that there is no need to have a special construct to perform an iteration; just by calling a procedure this can be accomplished. 
