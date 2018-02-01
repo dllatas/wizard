@@ -41,3 +41,10 @@ Abstract beings manipulated by a process.
 ### predicate
 ### consequent expression
 ### else
+### procedural abstraction
+### bound variable
+### binds
+### free variable
+### scope
+### block structure
+### lexical scoping

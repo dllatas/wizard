@@ -193,4 +193,24 @@ This section seems relevant on the sense that it provides a comparison between m
 
 The main difference between a function and a procedure is that the latter needs to be effective. This reflection is on the center of the distinction between declarative knowledge (describing properties) and imperative knowledge (describe how to do things). It can be said that Mathematics is declarative and computer sciences, imperative.
 
-The idea of "good enough" is also presented. This represents a parameter that will provide a mesaure to determine when a result is fine, since the perfect answer might be too expensive to compute. Moreover, another powerful idea is that there is no need to have a special construct to perform an iteration; just by calling a procedure this can be accomplished. 
+The idea of "good enough" is also presented. This represents a parameter that will provide a mesaure to determine when a result is fine, since the perfect answer might be too expensive to compute. Moreover, another powerful idea is that there is no need to have a special construct to perform an iteration; just by calling a procedure this can be accomplished.
+
+### 1.1.8 Procedures as Black-Box Abstractions
+
+It emphasizes the importance of procedure decomposition strategy. One does not randomly split a program into parts, but identifies each independent task and splits the code in that way, so each of those tasks can be used as a module in defining another procedure (or program). The concern is not around how the procedure computes its final result, but with the fact that it actually does it correctly. So when a procedure is used on this way by another it is called procedural abstraction. Hence, when a procedure is defined, it supresses details and its users should not need to know how the procedure is implemented in order to use it.
+
+# Local names
+
+The meaning of a procedure should be independent of the parameter names used by its author. This statement has consequences. One of them is that the parameter names must be local to the boody of the procedure. If this situation was not like this, programos would have no consistency since variable names of different procedures would generate a big confusion. Therefore, no black box.
+
+A formal parameter of a procedure has a special role since its name is a variable bound to the functions. So, a procedure definitions binds its formal parameters. If a formal parameter is renamed consistently, this will not affect the behavior of the procedure. When a variable is not bound, it is called a free variable. As we can see a bound variable has a meaning only inside the function, so its scope is the function itself. It will only mean something inside the function. The scope of a free variable is not the function.
+
+For instance, the set of symbols +, -, * on a function are free variables. They all mean the same everywhere we use them. Its scope is global, so to say. More of this later. 
+
+# Internal definitions and block structure
+
+So far our idea of scope is exclusively attached to formal parameters of a procedure. However, this could be restricted when composing black-boxes on large software projects. There is a need to hide procedures inside the body of a main procedure so those internal defintions are local to that procedure only. 
+
+This issue is called name-packaging, and having internal definitions is called block structure. By performing block strucutre, a formal parameter of the main procedure becomes a free variable in the rest of functions. This allow us to remove formal parameters from internal defintions because that former parameter get its value from the argument in the main procedure. This is known as lexical scoping, when an inner level can access its outer levels.
+
+Algol 60 was the 1st programming language to introduce block structure. Nowadays, it is used on most programming languages since it helps to organize large program's construction.
