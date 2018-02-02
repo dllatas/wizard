@@ -48,3 +48,7 @@ Abstract beings manipulated by a process.
 ### scope
 ### block structure
 ### lexical scoping
+
+## 1.2
+
+### local evolution
