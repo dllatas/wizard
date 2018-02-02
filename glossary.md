@@ -3,7 +3,10 @@
 # Glossary
 
 ### computational process
+Also referred as a process, it's the most abstract entity when one thinks about 
+performing a computation. It exists by means of a set of rules and memory.
 ### data
+Abstract beings manipulated by a process.
 ### program
 ### programming languages
 ### bugs or glitches
@@ -25,7 +28,27 @@
 ### tree accumulation
 ### special forms
 ### procedure definitions
-compound procedure
-substitution model
-normal-order evaluation
-applicative-order evaluation
+### compound procedure
+### substitution model
+### normal-order evaluation
+### applicative-order evaluation
+### clauses
+### predicate
+### procedural abstraction
+### block structure
+### lexical scoping
+### case analysis
+### predicate
+### consequent expression
+### else
+### procedural abstraction
+### bound variable
+### binds
+### free variable
+### scope
+### block structure
+### lexical scoping
+
+## 1.2
+
+### local evolution

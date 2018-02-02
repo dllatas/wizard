@@ -132,3 +132,85 @@ This alternative *fully expand and then reduce* evaluation method is known as no
 (+ 36 100)
 136
 ```
+
+### 1.1.6 Conditional Expressions and Predicates
+
+So far, there is no way to make tests and act based on their results, which limits our expressive power. The name for this construction is called case analysis and Lisp provides support for it via a special form called *cond*.
+
+**cond**
+``` scheme
+(cond 	(<p1> <e1>)
+	(<p2> <e2>)
+	...
+	(<pn> <en>)
+)
+```
+
+On the previous example, the pair of expressions in the parenthesis are called *clauses*. *p* stands for predicate. The main property of a predicate is that its value is interpreted or retruns true or false . *e* stands for consequent expression. Cond works as a sequence evaluating predicates until one is true. When that happens, it returns the value of the consequent expression. If all of them are false, the value returned is undefined.
+
+This behaviour (returning undefined) somehow influenced the creation of the special symbol *else*. The symbol else takes place in the last clause of a cond. So, it will handle the case when the rest of the predicates were false.
+
+Another reduction around cond, it's the special form *if*. It will focus on evaluating only two cases. This is the general form:
+
+**if**
+```scheme
+(if <predicate> <consequent> <alternative>)
+```
+
+An example
+```scheme
+(define (abs x)
+	(if (< x 0)
+	    (-x)
+	    x
+	)
+)
+```
+The interpreter will evaluate the predicate. If it is true, it will return the consequent.If it is false, it will return the alternative.
+
+Predicates can turn into compound predicates by the use of logical composition operations. The ones more in use are:
+
+1. And 
+```scheme
+( and <e1> <e2> ... <en>)
+```
+
+2. Or
+```scheme
+( or <e1> <e2> ... <en>)
+```
+
+3. Not
+```scheme
+( not <e>)
+```
+
+And and or are special forms since no all their subexpressions are neccesarilly evaluated. That's why they don't qualify as a procedure. However, not is a normal procedure.
+
+### 1.1.7 Example: Square Roots by Newton's Method
+
+This section seems relevant on the sense that it provides a comparison between mathematics and computer sciences. When the definition of the function to calculate square-roots is calculated, we realize that there is no info from there to actually perform the calculation.
+
+The main difference between a function and a procedure is that the latter needs to be effective. This reflection is on the center of the distinction between declarative knowledge (describing properties) and imperative knowledge (describe how to do things). It can be said that Mathematics is declarative and computer sciences, imperative.
+
+The idea of "good enough" is also presented. This represents a parameter that will provide a mesaure to determine when a result is fine, since the perfect answer might be too expensive to compute. Moreover, another powerful idea is that there is no need to have a special construct to perform an iteration; just by calling a procedure this can be accomplished.
+
+### 1.1.8 Procedures as Black-Box Abstractions
+
+It emphasizes the importance of procedure decomposition strategy. One does not randomly split a program into parts, but identifies each independent task and splits the code in that way, so each of those tasks can be used as a module in defining another procedure (or program). The concern is not around how the procedure computes its final result, but with the fact that it actually does it correctly. So when a procedure is used on this way by another it is called procedural abstraction. Hence, when a procedure is defined, it supresses details and its users should not need to know how the procedure is implemented in order to use it.
+
+# Local names
+
+The meaning of a procedure should be independent of the parameter names used by its author. This statement has consequences. One of them is that the parameter names must be local to the boody of the procedure. If this situation was not like this, programos would have no consistency since variable names of different procedures would generate a big confusion. Therefore, no black box.
+
+A formal parameter of a procedure has a special role since its name is a variable bound to the functions. So, a procedure definitions binds its formal parameters. If a formal parameter is renamed consistently, this will not affect the behavior of the procedure. When a variable is not bound, it is called a free variable. As we can see a bound variable has a meaning only inside the function, so its scope is the function itself. It will only mean something inside the function. The scope of a free variable is not the function.
+
+For instance, the set of symbols +, -, * on a function are free variables. They all mean the same everywhere we use them. Its scope is global, so to say. More of this later. 
+
+# Internal definitions and block structure
+
+So far our idea of scope is exclusively attached to formal parameters of a procedure. However, this could be restricted when composing black-boxes on large software projects. There is a need to hide procedures inside the body of a main procedure so those internal defintions are local to that procedure only. 
+
+This issue is called name-packaging, and having internal definitions is called block structure. By performing block strucutre, a formal parameter of the main procedure becomes a free variable in the rest of functions. This allow us to remove formal parameters from internal defintions because that former parameter get its value from the argument in the main procedure. This is known as lexical scoping, when an inner level can access its outer levels.
+
+Algol 60 was the 1st programming language to introduce block structure. Nowadays, it is used on most programming languages since it helps to organize large program's construction.
