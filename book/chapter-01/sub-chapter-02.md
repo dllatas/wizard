@@ -21,10 +21,16 @@ Another way to illustrate this computation is by means of using a counter to ite
 
 TODO: Insert figure 1.4
 
-The interesting part here is to compare both processes. A main difference is on its "shape", they evolve differently.
+The interesting part here is to compare both processes. From one perspective, one could state that both processes are quite similar: both compute the same mathematical function. On the other hand, there is a main difference netween them: its "shape", they evolve differently.
 
+Let's analyze both shapes, on the first process the substitution model reveals a shape of expansion followed by contraction. A chain of *deferred operations* is built by the process. When the operations are actually executed, the contraction happens. This is the main process of a recursive process, deferred operations. The interpreter is required to keep track of those operations. In the factorial example, the deferred operations are the deferred multiplications. Those operations grow linearly depending on the input. So, the interpreter needs to "remember" all this amount of information. This is aka a linear recursive process.    
 
+The second process has a different shape. Its shape is more regular since it does not expand and contract later. The interpreters only keeps track of 3 variables on each step: product, counter, and max-count. This is called an iterative process. The state in this kind of process is described by a fixed number of state variables, and a fixed rule that describes how to update state variables between states. Optionally, there is an end test that specifies when or what conditions need to be specified for the process to terminate. On our factorial example, computing n! means that the number of steps grows linearly with n. This is a linear iterative process.
 
+Now we have identified both processes, one as recursive and one as iterative. One of the main differences is that the latter can be resumed. If a computation is stopped between steps, one only needs to provide the 3 state variables to the interpreter to resume it. That's not the case for a recursive process, since there is hidden information by the interpreter. This information describes where the process is in the chain of deferred operations. Therefore, the longer the chain, more information must be maintained.
+
+Now that we have been talking about different procees, confusions might arise between recursive "process" and "procedure". A recursive procedure is defined by a reference to itself (directly or indirectly) on the producedure definition. So it is mainly a syntactic fact. A "recursive" process is about the process evolution. In our example, the procedure *fact-iter* is recursive, but the process is iterative: the state is captured by three state variables and the interpreter is only required to keep track of those in order to execute it.
+
+One of the reasons for this confusion comes from some programming languages (Ada, Pascal, C) design that interprets any recursive procedure as consuming an amount of memory that grows with the number of procedure calls, even when the process is iterative. In that way, iterative processes need special loop constructors (do, repeat, until, for, while). Scheme is not designed on this way. An iterative process will be executed in constant space, even when described by a recursive procedure. This implementation is called tail-recursive, iteration can be expressed using ordinary procedure calls, special loop constructors are just syntactic sugar.
 
 ### 1.2.2 Tree Recursion
-### 1.2.3 Orders of Growth
