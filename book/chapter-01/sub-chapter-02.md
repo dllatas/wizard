@@ -34,3 +34,11 @@ Now that we have been talking about different procees, confusions might arise be
 One of the reasons for this confusion comes from some programming languages (Ada, Pascal, C) design that interprets any recursive procedure as consuming an amount of memory that grows with the number of procedure calls, even when the process is iterative. In that way, iterative processes need special loop constructors (do, repeat, until, for, while). Scheme is not designed on this way. An iterative process will be executed in constant space, even when described by a recursive procedure. This implementation is called tail-recursive, iteration can be expressed using ordinary procedure calls, special loop constructors are just syntactic sugar.
 
 ### 1.2.2 Tree Recursion
+
+Computing a Fibonacci number is the example chosen to illustrate this pattern. The process evolution looks like a tree. Branches split into two at each level, except at the bottom, because the procedure calls itself twice.
+
+While it is a natural way to translate Fobonacci function, it is extremely inefficient since it involves repeating some calculations. The process' number of steps grows exponentially with the input, however, the space required only grows linearly. It is only required to keep track of nodes above us. Hence, mumber of steps will be proportional to number of nodes and space required will be proportional to maximum depth of tree.
+
+### 1.2.3 Orders of Growth
+
+
