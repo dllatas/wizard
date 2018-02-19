@@ -52,3 +52,10 @@ Abstract beings manipulated by a process.
 ## 1.2
 
 ### local evolution
+### deferred operations
+### linear recursive process
+### iterative process
+### state variables
+### linear iterative process
+### tail-recursive
+### tree recursion
